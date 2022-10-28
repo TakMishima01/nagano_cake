@@ -29,12 +29,76 @@
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
                 <% if request.fullpath.include? "/admin" %>
-                  //admin側のheaderを返す
+                <li class="mr-3">
+                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary ">商品一覧</button>
+                  <% end %>
+                </li>
+                <li class="mr-3">
+                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">会員一覧</button>
+                  <% end %>
+                </li>
+                <li class="mr-3">
+                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">注文履歴一覧</button>
+                  <% end %>
+                </li>
+                <li class="mr-3">
+                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">ジャンル一覧</button>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">ログアウト</button>
+                  <% end %>
+                </li>
                 <% else %>
-                  // user側のheaderを返す
+                <li class="mr-3">
+                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary ">About</button>
+                  <% end %>
+                </li>
+                <li class="mr-3">
+                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">商品一覧</button>
+                  <% end %>
+                </li>
+                <li class="mr-3">
+                  <%= link_to new_customer_registration_path, class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">新規登録</button>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_customer_session_path, class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">ログイン</button>
+                  <% end %>
+                </li>
+
                 <% end %>
               <% elsif customer_signed_in? %>
-                // userログイン状態の際に、表示したいheaderのメニューを記載
+                <li class="mr-3">
+                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary ">マイページ</button>
+                  <% end %>
+                </li>
+                <li class="mr-3">
+                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">商品一覧</button>
+                  <% end %>
+                </li>
+                <li class="mr-3">
+                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">カート</button>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+                    <button type="button" class="btn btn-outline-secondary">ログアウト</button>
+                  <% end %>
+                </li>
+
               <% else %>
                 <li class="mr-3">
                   <%= link_to "/about", class: "nav-link text-dark" do %>
