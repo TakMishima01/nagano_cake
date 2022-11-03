@@ -6,6 +6,7 @@ get '/about' => "public/homes#about", as: 'about'
 namespace :admin do
   root 'homes#top'
   resources :genres, only: [:index, :create, :edit, :update]
+  resources :items, except: [:destroy]
 end
 
 
