@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
 root to: "public/homes#top"
 get '/about' => "public/homes#about", as: 'about'
-get '/admin' => "admin/homes#top", as: 'admin'
 
 namespace :admin do
-  resources :genre, only: [:index, :create, :edit, :update]
+  root 'homes#top'
+  resources :genres, only: [:index, :create, :edit, :update]
 end
 
 
