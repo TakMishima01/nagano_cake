@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <div class="col-5 mt-3">
-      <%= image_tag @item.image, width: '300', height: 'auto' %>
+      <%= image_tag @item.get_image(250,250) %>
     </div>
     <div class="col-7 mt-3">
       <div>
