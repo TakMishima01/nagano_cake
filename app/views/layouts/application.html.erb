@@ -30,7 +30,7 @@
               <% if admin_signed_in? %>
                 <% if request.fullpath.include? "/admin" %>
                 <li class="mr-3">
-                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                  <%= link_to admin_items_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary ">商品一覧</button>
                   <% end %>
                 </li>
@@ -61,7 +61,7 @@
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                  <%= link_to admin_items_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">商品一覧</button>
                   <% end %>
                 </li>
@@ -84,7 +84,7 @@
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                  <%= link_to admin_items_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">商品一覧</button>
                   <% end %>
                 </li>
@@ -106,7 +106,7 @@
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                  <%= link_to admin_items_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">商品一覧</button>
                   <% end %>
                 </li>

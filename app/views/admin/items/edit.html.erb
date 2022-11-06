@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row py-4 col-11 offset-1 ">
+    <h3 class="bg-light px-4">商品編集</h3>
+  </div>
+   <%= form_with model: @item, url: admin_item_path,class: "col-sm-9 offset-3", local: true do |f| %>
+    <div class="row mb-3">
+      <%= f.label :商品画像, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-6 pt-2">
+        <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :商品名, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :商品説明, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-6">
+        <%= f.text_area :introduction, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :ジャンル, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-6 dropdown pt-2">
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, :include_blank => "--選択してください--", class: "dropdown-item" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :税抜価格, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :price, class: "form-control" %>
+      </div>
+      <h3 class="col-form-label col-sm-1 pl-0">円</h3>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :販売ステータス, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-6 pt-2 ">
+        <label><%= f.radio_button :is_active, true ,{:checked => true} %> 販売中 </label>
+        <label><%= f.radio_button :is_active, false %> 販売停止中</label>
+      </div>
+    </div>
+    <%= f.submit '変更を保存', class: "btn btn-success"%>
+  <% end %>
+</div>
