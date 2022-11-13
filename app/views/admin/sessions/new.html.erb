@@ -2,8 +2,7 @@
 <div class="py-3">
   <div class="container">
     <h3 class="mb-3 col-11 offset-1">管理者ログイン</h3>
-      <form class="col-10 offset-2">
-        <%= form_with model: @customer, url: customer_session_path do |f| %>
+        <%= form_with model: @admin, url: admin_session_path, method: :post,class: "col-10 offset-2" do |f| %>
           <div class="row　py-3 mb-4">
           <div class="form-inline">
             <%= f.label :メールアドレス, class: "col-3 ml-0"%>
@@ -23,7 +22,6 @@
         </div>
         <% end %>
         <%= render "admin/shared/links" %>
-      </form>
   </div>
 </div>
 

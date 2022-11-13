@@ -1,1 +1,63 @@
-<h1>Top</h1>
+<div class="container">
+  <div class="row">
+
+<!--ジャンル検索    -->
+    <div class="col-sm-2 my-4 mx-4" >
+      <table class="table table-hover table-borderless border border-dark">
+        <thead class="border border-dark">
+          <tr>
+            <th scope="col", class="text-center">ジャンル検索</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+            <tr>
+              <td>
+                <%= genre.name %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+<!--TopImage-->
+    <div class="col-sm-9 my-4 px-0 card bg-dark text-white">
+      <%= image_tag 'top_m.jpg', class: "top_img bd-placeholder-img bd-placeholder-img-lg card-img", width: "50%", height: "270"%>
+      <div class="card-img-overlay d-flex">
+        <div class="top_img_bgcolor my-auto mx-auto text-center">
+          <h5 class="card-title">ようこそ、ながのCAKEへ！</h5>
+          <p class="card-text">このサイトは、ケーキ販売のECサイトになります。</p>
+          <p class="card-text">会員でない方も商品の閲覧はできますが、</p>
+          <p class="card-text">購入には会員登録が必要になります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--新着商品-->
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-9 my-4">
+      <h2 class="my-4 ml-4">新着商品</h2>
+      <div class="card-group ml-4 my-4">
+        <% @items.each do |item| %>
+          <div class="card ml-4 ">
+            <%= image_tag item.image, class: "card-img-top" %>
+            <div class="card-body">
+            <h6 class="card-title"><%= item.name %></h6>
+            <p class="card-text">￥<%= item.price.to_s(:delimited, delimiter: ',') %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!--商品一覧リンク-->
+  <div class="text-right">
+    <%= link_to "すべての商品を見る >", items_path %>
+  </div>
+</div>
+
+

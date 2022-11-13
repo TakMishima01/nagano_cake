@@ -1,2 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.top_img {
+  object-fit: cover;
+}
+
+.top_img_bgcolor {
+    background-color: rgba(128,128,128,0.5);
+}
+
+.about_img {
+  object-fit: cover;
+  object-position: 50% 75%
+}
