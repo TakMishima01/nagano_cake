@@ -17,7 +17,21 @@ get '/about' => "public/homes#about", as: 'about'
 
 scope module: :public do
     resources :items, only: [:index, :show]
-    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
+    
+    get "/customers/unsubscribe" => "customers#unsubscribe", ad: 'unsubscribe'
+    patch "/customers/withdraw" => 'customers#withdraw', as: 'withdraw'
+    resources :customers, only: [:show, :edit, :update]
+
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    
+    post "/orders/confirm" => 'orders#confirm'
+    get "/orders/complete" => 'orders#complete'
+    resources :orders, only: [:new, :create, :index, :show]
+    
+    delete "/cart_items/destroy_all" => 'cart_items#destroy_all', as: 'destroy_all'
+    resources :cart_items, only: [:index, :update, :destroy, :create]
+
+
   end
 
 namespace :admin do
