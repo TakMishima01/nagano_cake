@@ -12,4 +12,6 @@ class Public::ItemsController < ApplicationController
     @customer = current_customer
   end
 
+
+
 end

@@ -1,1 +1,32 @@
-<h1>cart_item/index</h1>
+<div class="container-fluid">
+
+  <!--title-->
+  <div class="row">
+    <div class="col-11 offset-1">
+      <h3 class="my-5">ショッピングカート</h3>
+      <%= link_to 'カートを空にする', destroy_all_path, class: "btn btn-danger px-4" %>
+    </div>
+  </div>
+
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">商品名</th>
+      <th scope="col">単価（税込）</th>
+      <th scope="col">数量</th>
+      <th scope="col">小計</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart_items.each do |cart_item| %>
+    <tr>
+      <td>cart_item.item_id</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
