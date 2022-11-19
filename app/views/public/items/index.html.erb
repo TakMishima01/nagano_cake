@@ -31,7 +31,7 @@
                 <%= image_tag item.image, class: "item_img card-img-top img-thumbnail" %>
                 <div class="py-4 px-2">
                   <h7 class="text-dark text-nowrap"><%= item.name %></h7>
-                  <p class="small text-muted mb-0">￥<%= item.price.to_s(:delimited, delimiter: ',') %></p>
+                  <p class="small text-muted mb-0">￥<%= item.add_tax_price %></p>
                 </div>
               </div>
             <!--</div>-->

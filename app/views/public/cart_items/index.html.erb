@@ -4,29 +4,40 @@
   <div class="row">
     <div class="col-11 offset-1">
       <h3 class="my-5">ショッピングカート</h3>
-      <%= link_to 'カートを空にする', destroy_all_path, class: "btn btn-danger px-4" %>
+      <%= link_to 'カートを空にする', destroy_all_path, method: :delete ,class: "btn btn-danger px-4" %>
     </div>
   </div>
 
-  <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">商品名</th>
-      <th scope="col">単価（税込）</th>
-      <th scope="col">数量</th>
-      <th scope="col">小計</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">商品名</th>
+        <th scope="col">単価（税込）</th>
+        <th scope="col">数量</th>
+        <th scope="col">小計</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td>
+            <%= cart_item.item.name %>
+          </td>
+          <td class="text-dark">
+            <%= cart_item.item.add_tax_price.to_s(:delimited) %>
+          </td>
+          <td>
 
-  <tbody>
-    <% @cart_items.each do |cart_item| %>
-    <tr>
-      <td>cart_item.item_id</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+          </td>
+          <td>
+
+          </td>
+          <td>
+
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
