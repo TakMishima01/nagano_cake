@@ -29,13 +29,16 @@
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
                 <% if request.fullpath.include? "/admin" %>
+
+                <!--管理者ログイン中-->
+
                 <li class="mr-3">
                   <%= link_to admin_items_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary ">商品一覧</button>
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                  <%= link_to admin_customers_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">会員一覧</button>
                   <% end %>
                 </li>
@@ -45,7 +48,7 @@
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                  <%= link_to admin_genres_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">ジャンル一覧</button>
                   <% end %>
                 </li>
@@ -54,14 +57,18 @@
                     <button type="button" class="btn btn-outline-secondary">ログアウト</button>
                   <% end %>
                 </li>
+
                 <% else %>
+
+                <!--管理者ログイン中の会員ページ-->
+
                 <li class="mr-3">
                   <%= link_to "/about", class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary ">About</button>
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to admin_items_path, class: "nav-link text-dark" do %>
+                  <%= link_to items_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">商品一覧</button>
                   <% end %>
                 </li>
@@ -78,18 +85,21 @@
 
                 <% end %>
               <% elsif customer_signed_in? %>
+
+              <!--会員ログイン中-->
+
                 <li class="mr-3">
-                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                  <%= link_to customer_path(current_customer), class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary ">マイページ</button>
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to admin_items_path, class: "nav-link text-dark" do %>
+                  <%= link_to items_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">商品一覧</button>
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                  <%= link_to cart_items_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">カート</button>
                   <% end %>
                 </li>
@@ -100,13 +110,16 @@
                 </li>
 
               <% else %>
+
+              <!--管理者・会員 未ログイン-->
+
                 <li class="mr-3">
                   <%= link_to "/about", class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary ">About</button>
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to admin_items_path, class: "nav-link text-dark" do %>
+                  <%= link_to items_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">商品一覧</button>
                   <% end %>
                 </li>
