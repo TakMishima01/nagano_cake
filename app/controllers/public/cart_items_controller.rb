@@ -2,6 +2,7 @@ class Public::CartItemsController < ApplicationController
 
   def index
     @cart_items = CartItem.where(customer_id: current_customer.id)
+    @total = 0
   end
 
   def create
@@ -22,9 +23,16 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
+    @item_amount = CartItem.find(params[:id])
+    @item_amount.update(cart_item_params)
+    redirect_to cart_items_path, notice: "変更しました"
+
   end
 
   def destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.delete
+    redirect_to cart_items_path
   end
 
   def destroy_all
