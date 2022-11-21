@@ -15,5 +15,6 @@
  * kaminari
  * ransack
  * bootstrap
+ * enum_help
  
  
