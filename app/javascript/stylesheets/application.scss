@@ -25,3 +25,15 @@
   height: 60px;
   object-fit: cover;
 }
+
+.confirm_table{
+    display: flex;
+    align-items: flex-start;
+}
+
+.thanks{
+  position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
