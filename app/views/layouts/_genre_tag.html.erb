@@ -1,0 +1,13 @@
+<div class="col-sm-2 my-4 mx-4" >
+  <div class="card mb-4 rounded-3 shadow-sm">
+    <h6 class="text-center card-header font-weight-bold">ジャンル検索</h6>
+
+      <ul class="list-group list-group-flush">
+        <% genres.each do |genre| %>
+        <li class="list-group-item text-center">
+          <%= link_to genre.name, items_path(genre_id: genre.id), class: "text-dark" %>
+        </li>
+        <% end %>
+      </ul>
+  </div>
+</div>
