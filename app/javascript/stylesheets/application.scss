@@ -37,3 +37,20 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 }
+
+.order_show_table{
+  display: flex;
+}
+
+.footer-bg{
+  background: #E6E6E6;
+}
+
+.footer{
+  width: 1000px;
+  margin: 0 auto;
+  padding: 35px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

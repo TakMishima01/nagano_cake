@@ -12,7 +12,7 @@
           <% @genres.each do |genre| %>
             <tr>
               <td>
-                <%= genre.name %>
+                <%= link_to genre.name, items_path(genre_id: genre.id), class: "text-dark" %>
               </td>
             </tr>
           <% end %>
@@ -21,7 +21,7 @@
     </div>
 
       <div class="col-sm-9">
-        <h2 class="ml-4 my-4 mx-4">商品一覧<small>（全 <%= Item.count %> 件）</small></h2>
+        <h2 class="ml-4 my-4 mx-4"><%= @title + "一覧" %><small>（全 <%= @items_count %> 件）</small></h2>
       <!-- Gallery item -->
         <div class="card-group">
           <% @items.each do |item| %>

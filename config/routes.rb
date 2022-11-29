@@ -17,17 +17,17 @@ get '/about' => "public/homes#about", as: 'about'
 
 scope module: :public do
     resources :items, only: [:index, :show]
-    
-    get "/customers/unsubscribe" => "customers#unsubscribe", ad: 'unsubscribe'
+
+    get "/customers/unsubscribe" => "customers#unsubscribe", as: 'unsubscribe'
     patch "/customers/withdraw" => 'customers#withdraw', as: 'withdraw'
     resources :customers, only: [:show, :edit, :update]
 
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    
+
     post "/orders/confirm" => 'orders#confirm'
     get "/orders/complete" => 'orders#complete'
     resources :orders, only: [:new, :create, :index, :show]
-    
+
     delete "/cart_items/destroy_all" => 'cart_items#destroy_all', as: 'destroy_all'
     resources :cart_items, only: [:index, :update, :destroy, :create]
 
@@ -39,6 +39,8 @@ namespace :admin do
   resources :genres, only: [:index, :create, :edit, :update]
   resources :items, except: [:destroy]
   resources :customers, only: [:index, :show, :edit, :update]
+  resources :orders, only: [:index, :show, :update]
+  resources :order_details, only: [:update]
 end
 
 
