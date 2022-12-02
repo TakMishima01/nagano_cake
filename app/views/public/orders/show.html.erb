@@ -1,18 +1,15 @@
-<div class="container">
+<div class="container py-5">
   <div class="row">
     <div class="col-11 offset-1">
-      <h3 class="my-5">注文履歴詳細</h3>
+      <h3 class="mb-5">注文履歴詳細</h3>
     </div>
   </div>
-
-
   <!--テーブルを横並びにする-->
   <div class="confirm_table">
-
     <!--注文情報の表示-->
     <div class="col-9">
       <h6 class="font-weight-bold">注文情報</h6>
-      <table class="table table-bordered">
+      <table class="table table-bordered bg-white shadow-sm">
         <tbody>
           <tr>
             <th>注文日</th>
@@ -37,11 +34,10 @@
         </tbody>
       </table>
     </div>
-
     <!--請求情報の表示-->
     <div class="col-3 ml-5">
       <h6 class="font-weight-bold">請求情報</h6>
-      <table class="table table-bordered">
+      <table class="table table-bordered bg-white shadow-sm">
         <tbody>
           <tr>
             <th>商品合計</th>
@@ -59,14 +55,11 @@
       </table>
     </div>
   </div>
-
-
   <div class="confirm_table">
   <!--注文内容の表示-->
-
     <div class="col-11">
       <h6 class="font-weight-bold">請求情報</h6>
-      <table class="table table-bordered">
+      <table class="table table-bordered bg-white shadow-sm">
         <thead>
           <tr>
             <th>商品</th>
@@ -77,20 +70,20 @@
         </thead>
         <tbody>
           <% @order.order_details.each do |order_detail| %>
-          <tr>
-            <td>
-              <%= order_detail.item.name %>
-            </td>
-            <td>
-              <%= order_detail.purchase_price_tax.to_s(:delimited) %>
-            </td>
-            <td>
-              <%= order_detail.amount %>
-            </td>
-            <td>
-              <%= (order_detail.purchase_price_tax * order_detail.amount).to_s(:delimited) %>
-            </td>
-          </tr>
+            <tr>
+              <td>
+                <%= order_detail.item.name %>
+              </td>
+              <td>
+                <%= order_detail.purchase_price_tax.to_s(:delimited) %>
+              </td>
+              <td>
+                <%= order_detail.amount %>
+              </td>
+              <td>
+                <%= (order_detail.purchase_price_tax * order_detail.amount).to_s(:delimited) %>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>

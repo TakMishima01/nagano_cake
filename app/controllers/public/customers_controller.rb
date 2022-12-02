@@ -10,8 +10,12 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = current_customer
-    @customer.update(customer_params)
-    redirect_to customer_path(@customer.id)
+    if @customer.update(customer_params)
+      redirect_to customer_path(@customer.id), notice: '変更が完了しました'
+    else
+      flash.now[:error] = "空欄があります"
+      render :edit
+    end
   end
 
   def unsubscribe
@@ -19,11 +23,9 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = current_customer
-    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     @customer.update(is_deleted: true)
     reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to root_path, notice: "退会処理を実行いたしました"
   end
 
   private

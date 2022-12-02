@@ -1,25 +1,37 @@
 class Public::AddressesController < ApplicationController
 
+  before_action :authenticate_customer!, except: [:top]
+
   def index
     @address = Address.new
     @addresses = Address.all
+  end
+
+  def create
+    index
+    address = Address.new(address_params)
+    address.customer_id = current_customer.id
+    if address.save
+      redirect_to addresses_path, notice: "登録が完了しました"
+    else
+      flash.now[:error] = "空欄があります"
+      render :index
+    end
   end
 
   def edit
     @address = Address.find(params[:id])
   end
 
-  def create
-    address = Address.new(address_params)
-    address.customer_id = current_customer.id
-    address.save
-    redirect_to addresses_path
-  end
-
   def update
     @address = Address.find(params[:id])
-    @address.update(address_params)
-    redirect_to addresses_path
+    if @address.update(address_params)
+    redirect_to addresses_path, notice: "変更が完了しました"
+  else
+    flash.now[:error] = "空欄があります"
+    render :edit
+  end
+
   end
 
   def destroy
@@ -27,7 +39,7 @@ class Public::AddressesController < ApplicationController
     if address.customer_id == current_customer.id
       address.destroy
     end
-    redirect_to addresses_path
+    redirect_to addresses_path, notice: "削除しました"
   end
 
 

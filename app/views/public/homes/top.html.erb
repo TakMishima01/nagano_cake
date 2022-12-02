@@ -1,13 +1,10 @@
-<div class="container">
+<div class="container py-5">
   <div class="row">
-
 <!--ジャンル検索    -->
     <%= render 'layouts/genre_tag', genres: @genres %>
-
-
 <!--TopImage-->
-    <div class="col-sm-9 my-4 px-0 card bg-dark text-white">
-      <%= image_tag 'top_m.jpg', class: "top_img bd-placeholder-img bd-placeholder-img-lg card-img", width: "50%", height: "270"%>
+    <div class="col-sm-9 my-4 px-0 card bg-dark text-white shadow-sm">
+      <%= image_tag 'top_m.jpg', class: "top_img bd-placeholder-img bd-placeholder-img-lg card-img", width: "50%", height: "330"%>
       <div class="card-img-overlay d-flex">
         <div class="top_img_bgcolor my-auto mx-auto text-center">
           <h5 class="card-title">ようこそ、ながのCAKEへ！</h5>
@@ -18,7 +15,6 @@
       </div>
     </div>
   </div>
-
 <!--新着商品-->
   <div class="row">
     <div class="col-sm-2"></div>
@@ -29,25 +25,21 @@
       <div class="col-sm-2"></div>
       <div class="card-deck ml-4 col-sm-9">
         <% @items.each do |item| %>
-        <div class="card mx-1 shadow-sm bg-white rounded">
-          <%= link_to item_path(item) do %>
-            <%= image_tag item.image, class: "item_img card-img-top" %>
-            <div class="card-body px-0">
-            <h6 class="card-title text-dark text-wrap text-center"><%= item.name %></h6>
-            <p class="card-text small text-muted mb-0 text-center">￥<%= item.price.to_s(:delimited, delimiter: ',') %></p>
+          <div class="card mx-1 shadow-sm bg-white rounded">
+            <%= link_to item_path(item) do %>
+              <%= image_tag item.image, class: "item_img card-img-top" %>
+              <div class="card-body px-0">
+                <h6 class="card-title text-dark text-wrap text-center"><%= item.name %></h6>
+                <p class="card-text small text-muted mb-0 text-center">￥<%= item.price.to_s(:delimited, delimiter: ',') %></p>
+              </div>
+            <% end %>
           </div>
-          
-        <% end %>
-        </div>
         <% end %>
       </div>
     </div>
   </div>
-
   <!--商品一覧リンク-->
-  <div class="text-right mt-5">
+  <div class="text-right mt-5" >
     <%= link_to "すべての商品を見る >", items_path %>
   </div>
 </div>
-
-

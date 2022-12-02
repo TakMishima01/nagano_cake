@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container py-5">
   <div class="row">
     <%= render 'layouts/genre_tag', genres: @genres %>
     <div class="col-sm-9">
@@ -7,20 +7,17 @@
       <div class="card-deck">
         <% @items.each do |item| %>
           <%= link_to item_path(item), class: "col-xl-3 col-lg-4 col-md-6 mb-4" do %>
-            <!--<div class="col-xl-3 col-lg-4 col-md-6 mb-4">-->
             <div class="bg-white rounded shadow-sm">
               <%= image_tag item.image, class: "item_img card-img-top" %>
               <div class="card-body py-4 px-2">
-                <h7 class="card-title text-dark text-nowrap"><%= item.name %></h7>
-                <p class="card-text small text-muted mb-0">￥<%= item.add_tax_price %></p>
+                <h6 class="card-title text-dark text-wrap text-center"><%= item.name %></h6>
+                <p class="card-text small text-muted mb-0 text-center">￥<%= item.add_tax_price %></p>
               </div>
             </div>
-            <!--</div>-->
           <% end %>
         <% end %>
       </div>
-      <!-- End -->
-      <div class ="mx-auto" style="width: 300px;">
+      <div class ="mx-auto mt-4" style="width: 300px;">
         <%= paginate @items %>
       </div>
     </div>
