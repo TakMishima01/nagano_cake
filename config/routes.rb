@@ -20,7 +20,9 @@ scope module: :public do
 
     get "/customers/unsubscribe" => "customers#unsubscribe", as: 'unsubscribe'
     patch "/customers/withdraw" => 'customers#withdraw', as: 'withdraw'
-    resources :customers, only: [:show, :edit, :update]
+    get "/customers/mypage" => "customers#show"
+    get "/customers/information/edit" => "customers#edit"
+    patch "/customers/information" => "customers#update"
 
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 
@@ -35,10 +37,11 @@ scope module: :public do
   end
 
 namespace :admin do
-  root 'homes#top'
   resources :genres, only: [:index, :create, :edit, :update]
   resources :items, except: [:destroy]
+  get "customers/:id/order_list" => "customers#order_list", as: "order_list"
   resources :customers, only: [:index, :show, :edit, :update]
+  root 'orders#index'
   resources :orders, only: [:index, :show, :update]
   resources :order_details, only: [:update]
 end

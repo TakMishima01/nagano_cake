@@ -43,7 +43,7 @@
                   <% end %>
                 </li>
                 <li class="mr-3">
-                  <%= link_to "/about", class: "nav-link text-dark" do %>
+                  <%= link_to admin_orders_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">注文履歴一覧</button>
                   <% end %>
                 </li>
@@ -53,7 +53,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-dark" do %>
+                  <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary">ログアウト</button>
                   <% end %>
                 </li>
@@ -85,11 +85,12 @@
 
                 <% end %>
               <% elsif customer_signed_in? %>
+                <li class="mr-5 mt-4">ようこそ、<%= current_customer.last_name %>さん！</li>
 
               <!--会員ログイン中-->
 
                 <li class="mr-3">
-                  <%= link_to customer_path(current_customer), class: "nav-link text-dark" do %>
+                  <%= link_to customers_mypage_path, class: "nav-link text-dark" do %>
                     <button type="button" class="btn btn-outline-secondary ">マイページ</button>
                   <% end %>
                 </li>
@@ -152,7 +153,8 @@
       </nav>
     </header>
     <main>
-      <div class="py-5 bg-light">
+      <div class="bg-light">
+        <%= render partial: 'layouts/flash' %>
         <%= yield %>
       </div>
     </main>

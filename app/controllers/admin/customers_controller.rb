@@ -1,5 +1,7 @@
 class Admin::CustomersController < ApplicationController
 
+  before_action :authenticate_admin!, except: [:admin_session_path]
+
   def index
     @customers = Customer.page(params[:page])
   end
@@ -14,8 +16,18 @@ class Admin::CustomersController < ApplicationController
 
   def update
     @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    redirect_to admin_customer_path(@customer.id)
+    if @customer.update(customer_params)
+      redirect_to admin_customer_path(@customer.id), notice: "変更が完了しました"
+    else
+      flash.now[:error] = "空欄があります"
+      render :edit
+    end
+  end
+
+  def order_list
+    @customer = Customer.find(params[:id])
+    @orders = Order.where(customer_id: params[:id]).page(params[:page]).per(10)
+    @sum_amount = 0
   end
 
   private

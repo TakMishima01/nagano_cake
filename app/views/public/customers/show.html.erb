@@ -1,21 +1,15 @@
-<div class="container-fluid">
-
-  <!--title-->
+<div class="container py-5">
   <div class="row">
     <div class="col-11 offset-1">
-      <h3 class="my-5">マイページ</h3>
+      <h3 class="mb-5">マイページ</h3>
     </div>
   </div>
-
-  <!--sub_title 編集ボタン-->
   <div class="row mb-3 ml-4">
     <h3 class="col-2">登録情報</h3>
-      <%= link_to '編集する', edit_customer_path(@customer), class: "btn btn-success px-4" %>
+    <%= link_to '編集する', customers_information_edit_path, class: "btn btn-success px-4" %>
   </div>
-
-  <!--テーブル-->
   <div class="row mb-4 mx-5">
-    <table class="table table-bordered">
+    <table class="table table-bordered bg-white shadow-sm">
       <tbody>
         <tr>
           <th scope="row">氏名</th>
@@ -43,10 +37,7 @@
         </tr>
       </tbody>
     </table>
-
   </div>
-
-  <!--配送先、注文一覧リンクボタン-->
   <div class="row mt-5 ml-4">
     <h3 class="col-2">配送先</h3>
     <%= link_to '一覧を見る', addresses_path, class: "btn btn-primary px-4" %>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Public::RegistrationsController < Devise::RegistrationsController
-  
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
 
@@ -69,4 +69,10 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def after_sign_up_path_for(resource)
+    customers_mypage_path
+  end
+
 end
+

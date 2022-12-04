@@ -1,4 +1,7 @@
 class Public::OrdersController < ApplicationController
+
+  before_action :authenticate_customer!, except: [:top]
+
   def new
     @order = Order.new
     @customer = Customer.find(current_customer.id)
@@ -28,6 +31,7 @@ class Public::OrdersController < ApplicationController
     @cart_items = CartItem.where(customer_id: current_customer.id)
     @total = 0
     @order.shipping_cost = 800
+
   end
 
   def complete
@@ -51,7 +55,6 @@ class Public::OrdersController < ApplicationController
     current_customer.cart_items.destroy_all
 
     redirect_to orders_complete_path
-    # binding.pry
   end
 
   def index
