@@ -20,7 +20,9 @@ scope module: :public do
 
     get "/customers/unsubscribe" => "customers#unsubscribe", as: 'unsubscribe'
     patch "/customers/withdraw" => 'customers#withdraw', as: 'withdraw'
-    resources :customers, only: [:show, :edit, :update]
+    get "/customers/mypage" => "customers#show"
+    get "/customers/information/edit" => "customers#edit"
+    patch "/customers/information" => "customers#update"
 
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
 

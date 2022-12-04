@@ -11,9 +11,9 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to customer_path(@customer.id), notice: '変更が完了しました'
+      redirect_to customers_mypage_path, notice: '変更が完了しました。'
     else
-      flash.now[:error] = "空欄があります"
+      flash.now[:error] = "空欄があります。"
       render :edit
     end
   end
@@ -25,7 +25,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
-    redirect_to root_path, notice: "退会処理を実行いたしました"
+    redirect_to root_path, notice: "退会処理を実行いたしました。ありがとうございました。"
   end
 
   private

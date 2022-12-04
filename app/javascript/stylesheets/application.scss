@@ -31,13 +31,6 @@
     align-items: flex-start;
 }
 
-// .thanks{
-//   // position: fixed;
-// top: 50%;
-// left: 50%;
-// transform: translate(-50%, -50%);
-// }
-
 .order_show_table{
   display: flex;
 }
@@ -53,4 +46,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+
+
+.item_card{
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  cursor: pointer;
+}
+
+.item_card:hover{
+    transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }

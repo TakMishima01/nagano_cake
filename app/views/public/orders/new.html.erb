@@ -38,7 +38,7 @@
         <%= f.label :select_address, "登録済み住所から選択"%>
       </div>
       <div class="col-8 offset-1">
-        <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_displays) %>
+        <%= f.select :address_id, options_from_collection_for_select(Address.where(customer_id:[current_customer]), :id, :address_displays) %>
       </div>
 
       <!--新しいお届け先-->

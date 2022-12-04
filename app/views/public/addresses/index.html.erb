@@ -25,7 +25,7 @@
   <% end %>
   <div class="row pt-3">
     <div class="col-5">
-      <table class="table text-nowrap table-bordered">
+      <table class="table text-nowrap table-bordered bg-white shadow-sm">
         <thead>
           <tr>
             <th scope="col">郵便番号</th>
@@ -37,9 +37,9 @@
         <% @addresses.each do |address| %>
           <tbody>
             <tr>
-              <td><%= address.postal_code %></td>
-              <td><%= address.address %></td>
-              <td><%= address.name %></td>
+              <td class="align-middle"><%= address.postal_code %></td>
+              <td class="align-middle"><%= address.address %></td>
+              <td class="align-middle"><%= address.name %></td>
               <td>
                 <%= link_to '編集する', edit_address_path(address), class: "btn btn-success"%>
                 <%= link_to '削除する', address_path(address), method: :delete, class: "btn btn-danger", data: {confirm: "本当に削除しますか？"} %>
